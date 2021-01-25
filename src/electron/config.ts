@@ -69,3 +69,21 @@ export const setConfigProps = (config: Partial<Config>): void => {
     console.error(e);
   }
 };
+
+export class ConfigManager {
+  get config(): Config { return this._config; }
+
+  private _config: Config;
+
+  constructor() {
+    this._config = getConfig();
+  }
+
+  patch(config: Partial<Config>) {
+    this._config = {
+      ...this.config,
+      ...config
+    };
+    setConfigProps(config);
+  }
+}

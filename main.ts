@@ -68,7 +68,6 @@ function createWindow(): BrowserWindow {
   win.setTitle(require('./package.json').name);
 
   if (isDev) {
-
     win.webContents.openDevTools();
 
     require('electron-reload')(__dirname, {

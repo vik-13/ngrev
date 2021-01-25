@@ -42,7 +42,7 @@ export class BackgroundApp {
   private taskQueue: TaskQueue;
 
   init(config: Partial<Config>): void {
-    this.slaveProcess = SlaveProcess.create(join(__dirname, '..', 'parser.js'));
+    this.slaveProcess = SlaveProcess.create(join(__dirname, '..', 'child-process.js'));
     this.taskQueue = new TaskQueue();
 
     ipcMain.on(Message.Config, e => {
